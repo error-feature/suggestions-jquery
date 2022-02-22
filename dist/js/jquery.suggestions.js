@@ -478,6 +478,21 @@
             }
         };
 
+        types['PROFESSIONS'] = {
+            urlSuffix: 'professions',
+            matchers: [matchers.matchByNormalizedQuery, matchers.matchByWords],
+            // names for labels, describing which fields are displayed
+            fieldNames: {
+                profession: 'должность',
+            },
+            // try to suggest even if a suggestion has been selected manually
+            alwaysContinueSelecting: true,
+            isDataComplete: true,
+            composeValue: function (data) {
+                return utils.compact([data.profession]).join(' ');
+            }
+        };
+
         types['ADDRESS'] = {
             urlSuffix: 'address',
             matchers: [
