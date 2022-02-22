@@ -487,7 +487,9 @@
             },
             // try to suggest even if a suggestion has been selected manually
             alwaysContinueSelecting: true,
-            isDataComplete: true,
+            isDataComplete: function (suggestion) {
+                return true;
+            },
             composeValue: function (data) {
                 return utils.compact([data.profession]).join(' ');
             }
